@@ -5,6 +5,7 @@
   "assets": {
     "directory": "out"
   },
+  "pages_build_output_dir": "out",
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
