@@ -3,9 +3,6 @@
   "main": ".next/server.js",
   "compatibility_date": "2025-03-07",
   "compatibility_flags": ["nodejs_compat"],
-  "routes": [
-    { "pattern": "/*", "module": ".next/server.js" }
-  ],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
