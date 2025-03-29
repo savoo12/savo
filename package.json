@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "pages:build": "next build",
-    "pages:dev": "wrangler pages dev .next/static",
-    "pages:deploy": "wrangler pages deploy .next/static"
+    "pages:dev": "wrangler pages dev out",
+    "pages:deploy": "wrangler pages deploy out"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.10",
