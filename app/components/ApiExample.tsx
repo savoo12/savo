@@ -14,6 +14,12 @@ export default function ApiExample() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Only run fetch in browser environment, not during static build
+    if (typeof window === 'undefined') {
+      setLoading(false);
+      return;
+    }
+
     async function fetchData() {
       try {
         const response = await fetch('/api/hello');
@@ -24,6 +30,7 @@ export default function ApiExample() {
         setData(result);
         setLoading(false);
       } catch (err) {
+        console.error('API fetch error:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
@@ -36,7 +43,12 @@ export default function ApiExample() {
     <div className="mt-8 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg w-full max-w-2xl">
       <h2 className="text-2xl font-bold mb-4">API Example</h2>
       {loading && <p>Loading API data...</p>}
-      {error && <p className="text-red-500">Error: {error}</p>}
+      {error && (
+        <div>
+          <p className="text-red-500">Error: {error}</p>
+          <p className="text-sm mt-2">Note: API endpoints will only work when the site is deployed to Cloudflare Pages.</p>
+        </div>
+      )}
       {data && (
         <div className="space-y-2">
           <p><strong>Message:</strong> {data.message}</p>
