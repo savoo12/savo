@@ -1,13 +1,4 @@
 // Types are automatically provided by the Cloudflare Pages environment
-// We need to declare the KVNamespace interface for TypeScript
-
-// Define KVNamespace interface for TypeScript
-interface KVNamespace {
-  get(key: string, options?: any): Promise<string | null>;
-  put(key: string, value: string | ReadableStream | ArrayBuffer, options?: any): Promise<void>;
-  delete(key: string): Promise<void>;
-  list(options?: any): Promise<{ keys: { name: string }[] }>;
-}
 
 interface SignupData {
   email: string;
@@ -19,9 +10,7 @@ interface SignupData {
 // Define context type for Pages Functions
 type Context = {
   request: Request;
-  env: {
-    WAITLIST_SIGNUPS?: KVNamespace;
-  };
+  env: Record<string, any>;
   params: Record<string, string>;
 };
 
@@ -88,17 +77,8 @@ export const onRequest = async (context: Context) => {
       source: referer
     };
 
+    // Just log the data for now, we'll implement KV storage later
     console.log('Waitlist signup received:', JSON.stringify(signupData));
-    
-    // Store in KV if KV namespace is available
-    if (context.env.WAITLIST_SIGNUPS) {
-      // Use email as key (with timestamp to avoid duplicates)
-      const key = `signup:${email}:${Date.now()}`;
-      await context.env.WAITLIST_SIGNUPS.put(key, JSON.stringify(signupData));
-      console.log('Waitlist signup stored in KV with key:', key);
-    } else {
-      console.warn('WAITLIST_SIGNUPS KV namespace not available, data not stored');
-    }
     
     // Return success response
     return new Response(

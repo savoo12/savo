@@ -2,12 +2,5 @@
   "name": "savo",
   "compatibility_date": "2025-03-07",
   "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": "out",
-  "kv_namespaces": [
-    {
-      "binding": "WAITLIST_SIGNUPS",
-      "id": "<CREATE_KV_NAMESPACE_AND_ADD_ID_HERE>",
-      "preview_id": "<CREATE_KV_NAMESPACE_AND_ADD_PREVIEW_ID_HERE>"
-    }
-  ]
+  "pages_build_output_dir": "out"
 } 
