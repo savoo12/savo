@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "My Next.js Site on Cloudflare Pages",
-  description: "A high-performance Next.js site deployed on Cloudflare's global edge network",
+  title: "CloudNext - Modern Web Apps on the Edge",
+  description: "High-performance Next.js applications deployed globally on Cloudflare Pages",
 };
 
 export default function RootLayout({
@@ -23,10 +12,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className="h-full">
+      <head>
+        {/* Google Analytics - Replace G-PLACEHOLDER with your actual Google Analytics measurement ID */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              // Replace G-PLACEHOLDER with your actual Google Analytics measurement ID (format: G-XXXXXXXXXX)
+              gtag('config', 'G-PLACEHOLDER');
+            `
+          }}
+        />
+      </head>
+      <body className="h-full antialiased">
         {children}
       </body>
     </html>
