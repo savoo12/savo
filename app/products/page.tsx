@@ -95,11 +95,15 @@ export default function ProductsPage() {
             <div className="mt-16 flow-root sm:mt-24">
               <div className="relative -m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                 <div className="relative rounded-md shadow-2xl ring-1 ring-gray-900/10">
-                  <div className="bg-gray-100 dark:bg-gray-800 h-[350px] w-full rounded-md flex items-center justify-center">
-                    <p className="text-gray-500 dark:text-gray-400 text-center px-6">
-                      [Dashboard Preview Image]<br />
-                      <span className="text-sm">EdgeDeploy management dashboard</span>
-                    </p>
+                  <div className="bg-white dark:bg-gray-800 h-[350px] w-full rounded-md flex items-center justify-center overflow-hidden">
+                    <Image
+                      src="/images/dashboard/edgedeploy-dashboard.svg"
+                      alt="EdgeDeploy dashboard interface showing deployments, analytics, and performance metrics"
+                      width={1200}
+                      height={800}
+                      className="object-cover"
+                      priority
+                    />
                   </div>
                 </div>
               </div>
