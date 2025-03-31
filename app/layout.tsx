@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description: "High-performance Next.js applications deployed globally on Cloudflare Pages",
   keywords: "Next.js, Cloudflare, edge computing, web development, performance, SSG, static sites",
   authors: [{ name: "CloudNext Agency" }],
+  metadataBase: new URL('https://main.savo.pages.dev'),
   openGraph: {
     title: "CloudNext - Next.js & Cloudflare Specialists",
     description: "Building lightning-fast websites and applications that leverage the power of the edge",
@@ -36,16 +37,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
-        {/* Google Analytics - Replace G-PLACEHOLDER with your actual Google Analytics measurement ID */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+        {/* Google Analytics Configuration */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT-ID"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              // Replace G-PLACEHOLDER with your actual Google Analytics measurement ID (format: G-XXXXXXXXXX)
-              gtag('config', 'G-PLACEHOLDER');
+              gtag('config', 'G-MEASUREMENT-ID', {
+                page_path: window.location.pathname,
+                cookie_flags: 'max-age=7200;secure;samesite=none'
+              });
             `
           }}
         />

@@ -51,6 +51,7 @@ const navigation = [
   { name: 'Pricing', href: '/pricing' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Docs', href: '/documentation' },
 ];
 
 export default function Header() {
