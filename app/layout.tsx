@@ -4,6 +4,28 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "CloudNext - Modern Web Apps on the Edge",
   description: "High-performance Next.js applications deployed globally on Cloudflare Pages",
+  keywords: "Next.js, Cloudflare, edge computing, web development, performance, SSG, static sites",
+  authors: [{ name: "CloudNext Agency" }],
+  openGraph: {
+    title: "CloudNext - Next.js & Cloudflare Specialists",
+    description: "Building lightning-fast websites and applications that leverage the power of the edge",
+    images: [
+      {
+        url: "/images/hero/cloudnext-hero.svg",
+        width: 1200,
+        height: 600,
+        alt: "CloudNext - Next.js and Cloudflare integration"
+      }
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CloudNext - Next.js & Cloudflare Specialists",
+    description: "Building lightning-fast websites and applications that leverage the power of the edge",
+    images: ["/images/hero/cloudnext-hero.svg"],
+  }
 };
 
 export default function RootLayout({
