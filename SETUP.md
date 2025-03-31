@@ -1,6 +1,165 @@
-# CloudNext Agency Setup Guide
+# CloudNext Project Setup
 
-This guide will help you set up the CloudNext agency website with proper Cloudflare integrations and GitHub Actions for CI/CD.
+This document outlines the setup and configuration for the CloudNext website, including the EdgeDeploy API.
+
+## Website Components
+
+### Next.js Frontend
+
+The main CloudNext website is built using Next.js.
+
+#### Local Development
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+
+2. Run the development server:
+   ```
+   npm run dev
+   ```
+
+3. Build for production:
+   ```
+   npm run build
+   ```
+
+### EdgeDeploy API
+
+The EdgeDeploy API is a deployment platform for Next.js applications built on Cloudflare Workers. It provides a fully functional RESTful API for deploying, managing, and monitoring Next.js applications.
+
+#### Local Development
+
+1. Navigate to the functions directory:
+   ```
+   cd functions/edgedeploy
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Run the development server:
+   ```
+   npm run dev
+   ```
+
+## Cloudflare Setup
+
+### Cloudflare Pages
+
+1. Create a new Cloudflare Pages project
+2. Connect your GitHub repository
+3. Configure build settings:
+   - Build command: `npm run build`
+   - Build output directory: `out`
+4. Add environment variables if needed
+
+### Cloudflare Workers and KV Namespaces
+
+For the EdgeDeploy API, you need to set up the following resources in your Cloudflare account:
+
+1. KV Namespaces:
+   ```
+   wrangler kv:namespace create "EDGEDEPLOY_PROJECTS"
+   wrangler kv:namespace create "EDGEDEPLOY_DEPLOYMENTS"
+   wrangler kv:namespace create "EDGEDEPLOY_USERS"
+   ```
+
+2. Queues:
+   ```
+   wrangler queues create "deployment-queue"
+   wrangler queues create "deployment-queue-dlq"
+   ```
+
+3. Deploy the EdgeDeploy Worker:
+   ```
+   cd functions/edgedeploy
+   wrangler deploy
+   ```
+
+## Repository Structure
+
+```
+├── app/                  # Next.js application code
+│   ├── components/       # Reusable UI components
+│   ├── products/         # Product pages
+│   ├── features/         # Features pages
+│   └── ...
+├── functions/            # Cloudflare Functions
+│   └── edgedeploy/       # EdgeDeploy API
+│       ├── index.ts      # Main API code
+│       ├── queue-worker.ts # Deployment queue worker
+│       └── client-sdk.ts # Client SDK
+├── public/               # Static assets
+├── next.config.js        # Next.js configuration
+├── wrangler.jsonc        # Cloudflare Pages configuration
+└── package.json          # Project dependencies
+```
+
+## Deployment Workflow
+
+### Website
+
+The website is automatically deployed to Cloudflare Pages when changes are pushed to the main branch.
+
+1. Push changes to the GitHub repository:
+   ```
+   git add .
+   git commit -m "Your commit message"
+   git push
+   ```
+
+2. Cloudflare Pages will automatically build and deploy the changes.
+
+### EdgeDeploy API
+
+The EdgeDeploy API is deployed manually using Wrangler:
+
+1. Navigate to the functions directory:
+   ```
+   cd functions/edgedeploy
+   ```
+
+2. Deploy the worker:
+   ```
+   wrangler deploy
+   ```
+
+## EdgeDeploy API Documentation
+
+The EdgeDeploy API provides the following endpoints:
+
+### Projects
+
+- `GET /api/projects`: List all projects
+- `GET /api/projects/:id`: Get project details
+- `POST /api/projects`: Create a new project
+- `PUT /api/projects/:id`: Update a project
+
+### Deployments
+
+- `GET /api/deployments/:id`: Get deployment details
+- `GET /api/projects/:id/deployments`: List all deployments for a project
+- `POST /api/projects/:id/deploy`: Trigger a new deployment
+
+For detailed API documentation, refer to the Swagger UI available at `/docs` on the deployed API worker.
+
+## Technical Decisions
+
+- **Next.js**: Used for its static site generation capabilities, which work well with Cloudflare Pages.
+- **Cloudflare Workers**: Used for the EdgeDeploy API due to its global distribution and low latency.
+- **KV Storage**: Used to store project and deployment data.
+- **Queues**: Used for asynchronous processing of deployment jobs.
+
+## Future Improvements
+
+- Add authentication to the EdgeDeploy API
+- Implement user management and team collaboration features
+- Add support for more frameworks beyond Next.js
+- Implement real-time deployment status updates via WebSockets
 
 ## Current Implementation
 

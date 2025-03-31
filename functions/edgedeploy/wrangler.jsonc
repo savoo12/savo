@@ -1,0 +1,38 @@
+{
+  "name": "edgedeploy-api",
+  "main": "index.ts",
+  "compatibility_date": "2025-03-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "kv_namespaces": [
+    {
+      "binding": "EDGEDEPLOY_PROJECTS",
+      "id": "<YOUR_PROJECTS_KV_NAMESPACE_ID>"
+    },
+    {
+      "binding": "EDGEDEPLOY_DEPLOYMENTS",
+      "id": "<YOUR_DEPLOYMENTS_KV_NAMESPACE_ID>"
+    },
+    {
+      "binding": "EDGEDEPLOY_USERS",
+      "id": "<YOUR_USERS_KV_NAMESPACE_ID>"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "name": "deployment-queue",
+        "binding": "DEPLOYMENT_QUEUE"
+      }
+    ],
+    "consumers": [
+      {
+        "name": "deployment-queue",
+        "dead_letter_queue": "deployment-queue-dlq"
+      }
+    ]
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+} 
