@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudNext Hero Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background with gradient -->
+          <defs>
+            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f0f4ff" />
+              <stop offset="100%" stop-color="#e0e8ff" />
+            </linearGradient>
+            <linearGradient id="cloudflareGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f38020" />
+              <stop offset="100%" stop-color="#f9a03c" />
+            </linearGradient>
+            <linearGradient id="nextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#111" />
+              <stop offset="100%" stop-color="#333" />
+            </linearGradient>
+            <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7928ca" />
+              <stop offset="100%" stop-color="#9c37fa" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Main background -->
+          <rect width="1200" height="600" fill="url(#bgGradient)" rx="12" />
+          
+          <!-- Network/Grid Pattern -->
+          <g opacity="0.2">
+            <path d="M100,100 L1100,100" stroke="#4338ca" stroke-width="1" />
+            <path d="M100,200 L1100,200" stroke="#4338ca" stroke-width="1" />
+            <path d="M100,300 L1100,300" stroke="#4338ca" stroke-width="1" />
+            <path d="M100,400 L1100,400" stroke="#4338ca" stroke-width="1" />
+            <path d="M100,500 L1100,500" stroke="#4338ca" stroke-width="1" />
+            
+            <path d="M200,50 L200,550" stroke="#4338ca" stroke-width="1" />
+            <path d="M400,50 L400,550" stroke="#4338ca" stroke-width="1" />
+            <path d="M600,50 L600,550" stroke="#4338ca" stroke-width="1" />
+            <path d="M800,50 L800,550" stroke="#4338ca" stroke-width="1" />
+            <path d="M1000,50 L1000,550" stroke="#4338ca" stroke-width="1" />
+          </g>
+          
+          <!-- Decorative Connection Lines -->
+          <g>
+            <!-- Edge network visualization -->
+            <circle cx="600" cy="300" r="180" fill="none" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.7" />
+            <circle cx="600" cy="300" r="150" fill="none" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.7" />
+            <circle cx="600" cy="300" r="120" fill="none" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.7" />
+            
+            <!-- Global Edge Points -->
+            <circle cx="420" cy="220" r="6" fill="#4f46e5" />
+            <circle cx="500" cy="180" r="6" fill="#4f46e5" />
+            <circle cx="700" cy="180" r="6" fill="#4f46e5" />
+            <circle cx="780" cy="220" r="6" fill="#4f46e5" />
+            <circle cx="780" cy="380" r="6" fill="#4f46e5" />
+            <circle cx="700" cy="420" r="6" fill="#4f46e5" />
+            <circle cx="500" cy="420" r="6" fill="#4f46e5" />
+            <circle cx="420" cy="380" r="6" fill="#4f46e5" />
+            
+            <!-- Connection Lines -->
+            <line x1="420" y1="220" x2="500" y2="180" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+            <line x1="500" y1="180" x2="700" y2="180" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+            <line x1="700" y1="180" x2="780" y2="220" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+            <line x1="780" y1="220" x2="780" y2="380" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+            <line x1="780" y1="380" x2="700" y2="420" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+            <line x1="700" y1="420" x2="500" y2="420" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+            <line x1="500" y1="420" x2="420" y2="380" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+            <line x1="420" y1="380" x2="420" y2="220" stroke="#4f46e5" stroke-width="2" opacity="0.6" />
+          </g>
+          
+          <!-- Central Elements -->
+          <g>
+            <!-- Next.js Logo - Stylized N -->
+            <rect x="520" y="240" width="160" height="120" rx="8" fill="url(#nextGradient)" />
+            <path d="M550,280 L570,280 L610,340 L610,280 L630,280 L630,320 L610,320 L570,260 L570,320 L550,320 Z" fill="white" />
+            
+            <!-- Cloudflare Logo - Stylized Cloud -->
+            <g transform="translate(600, 300) scale(0.6)">
+              <path d="M100,0 C80,-10 60,0 50,20 C20,10 -10,30 0,60 C-10,90 20,110 50,100 C60,120 80,130 100,120 C120,130 140,120 150,100 C180,110 210,90 200,60 C210,30 180,10 150,20 C140,0 120,-10 100,0 Z" fill="url(#cloudflareGradient)" />
+            </g>
+          </g>
+          
+          <!-- Data Flow Animation Lines -->
+          <g>
+            <path d="M520,340 Q600,380 680,340" stroke="#4f46e5" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+            <path d="M680,260 Q600,220 520,260" stroke="#4f46e5" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+          </g>
+          
+          <!-- API/Request Flow Visualization -->
+          <g opacity="0.8">
+            <!-- Incoming Request -->
+            <path d="M300,300 Q450,250 520,280" stroke="#4f46e5" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+            
+            <!-- Processed Response -->
+            <path d="M680,320 Q820,350 900,300" stroke="#4f46e5" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+            
+            <!-- Define arrowhead marker -->
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#4f46e5" />
+              </marker>
+            </defs>
+          </g>
+          
+          <!-- Labels -->
+          <g>
+            <text x="600" y="500" font-family="Arial" font-size="20" font-weight="bold" fill="#4338ca" text-anchor="middle">
+              Next.js + Cloudflare Workers Integration
+            </text>
+            <text x="600" y="530" font-family="Arial" font-size="16" fill="#6366f1" text-anchor="middle">
+              Powering global, lightning-fast web applications at the edge
+            </text>
+          </g>
+          
+          <!-- Code Window in Background -->
+          <g opacity="0.8" transform="translate(900, 140) scale(0.8)">
+            <rect x="0" y="0" width="300" height="200" rx="8" fill="#1e293b" />
+            <rect x="0" y="0" width="300" height="30" rx="8" fill="#334155" />
+            <circle cx="20" cy="15" r="6" fill="#f87171" />
+            <circle cx="40" cy="15" r="6" fill="#fbbf24" />
+            <circle cx="60" cy="15" r="6" fill="#4ade80" />
+            
+            <!-- Code Lines -->
+            <text x="20" y="60" font-family="Courier New" font-size="12" fill="#94a3b8">export default {</text>
+            <text x="20" y="80" font-family="Courier New" font-size="12" fill="#e2e8f0">  async fetch(request, env) {</text>
+            <text x="20" y="100" font-family="Courier New" font-size="12" fill="#e2e8f0">    const url = new URL(request.url);</text>
+            <text x="20" y="120" font-family="Courier New" font-size="12" fill="#e2e8f0">    return await env.NEXT_APP.fetch(request);</text>
+            <text x="20" y="140" font-family="Courier New" font-size="12" fill="#e2e8f0">  }</text>
+            <text x="20" y="160" font-family="Courier New" font-size="12" fill="#94a3b8">}</text>
+          </g>
+          
+          <!-- Mobile Screen Preview -->
+          <g opacity="0.8" transform="translate(150, 140) scale(0.8)">
+            <rect x="0" y="0" width="200" height="400" rx="20" fill="#1e293b" />
+            <rect x="10" y="10" width="180" height="380" rx="12" fill="#f9fafb" />
+            <rect x="10" y="10" width="180" height="40" rx="12" fill="#4f46e5" />
+            <text x="100" y="35" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">CloudNext App</text>
+            
+            <!-- Content Preview -->
+            <rect x="30" y="70" width="140" height="20" rx="4" fill="#e2e8f0" />
+            <rect x="30" y="100" width="140" height="20" rx="4" fill="#e2e8f0" />
+            <rect x="30" y="130" width="140" height="20" rx="4" fill="#e2e8f0" />
+            <rect x="30" y="180" width="140" height="90" rx="4" fill="#4f46e5" opacity="0.2" />
+            <text x="100" y="225" font-family="Arial" font-size="14" fill="#4f46e5" text-anchor="middle">Lightning Fast!</text>
+            
+            <rect x="30" y="290" width="50" height="30" rx="15" fill="#4f46e5" />
+            <rect x="90" y="290" width="50" height="30" rx="15" fill="#e2e8f0" />
+          </g>
+        </svg>
+    </div>
+    <script>
+        // You can use this HTML file to take a screenshot of the hero image
+        // Open this file in a browser, then use browser tools or a screenshot tool
+        // to save the rendered SVG as a PNG file
+    </script>
+</body>
+</html> 

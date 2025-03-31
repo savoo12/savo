@@ -118,10 +118,10 @@ export default function Hero({
             >
               <div className="relative w-[76rem]">
                 <Image
-                  src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
-                  alt="App screenshot"
-                  width={2432}
-                  height={1442}
+                  src="/images/hero/cloudnext-hero.svg"
+                  alt="Next.js and Cloudflare Workers Integration"
+                  width={1200}
+                  height={600}
                   className="rounded-md shadow-2xl ring-1 ring-gray-900/10"
                   priority
                 />
